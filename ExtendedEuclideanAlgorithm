@@ -1,0 +1,87 @@
+
+
+public class ExtendedEuclideanAlgorithm {
+	
+	static long firstNumber;
+	static long secondNumber;
+	
+	
+	/**
+         The method to calculate the euclidean algorithm (the gcd of two given numbers) 
+         * if @param a (first input) is greater than @param b (second input) they switch          
+         *places
+         * if @param b is 0, the gcd is the other number (@param a)
+         * while @param b is not 0, @param quotient of a and b is computed
+         * also the @param remainder of a and b is computed
+         * for the next step @param a becomes @param b, and @param b becomes @param  
+         *remainder
+         *that is the recursive formula for gcd(a,b)=gcd(b,r)
+
+         */
+	
+	public static long euclidean(long a, long b) {
+		
+		
+		if(a<b){
+			long temp=a;
+			a=b;
+			b=temp;
+			
+		}
+		
+	
+		 if(b==0)
+			return a;
+		
+
+		
+		
+		while(b != 0){
+			long quotient = a / b;
+			 long remainder=a%b;
+			a=b;
+			b=remainder;
+		}
+		
+		return a;
+		
+
+	}
+
+
+     
+	/** the method to calculate the extended euclidean algorithm
+         * the starting values are given, @param x, @param y, @param lastx, @param lasty
+         * while @param b is not 0, the @param quotient and remainder are calculated
+         * the is used the recursive formula for calculating the bezout coefficients
+         *@param x is equal to @param lastx (one step before) substracted by @param q *@param x
+         * same for @param y
+          */
+
+   
+	public static void extendedEuclidean(long a, long b){
+		
+		 long x = 0L, y = 1L, lastX = 1L, lastY = 0L, temp;
+	        while (b != 0)
+	        {
+	            long quotient = a / b;
+	            long remainder = a % b;
+	 
+	            a = b;
+	            b = remainder;
+	 
+	            temp = x;
+	            x = lastX - quotient * x;
+	            lastX = temp;
+	 
+	            temp = y;
+	            y = lastY - quotient * y;
+	            lastY = temp;            
+	        }
+		
+	        System.out.println("\nBezout coefficients are x : "+ lastX +", y :"+ lastY + ".");
+	        System.out.println("The greatest common divisor can be written as: " + a + " = (" + firstNumber + " * " + lastX + ")" + " + ( " + secondNumber + " * " + lastY + " ).");
+	}
+	
+
+}
