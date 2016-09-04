@@ -1,0 +1,34 @@
+
+
+import java.util.Scanner;
+
+public class Test{
+	
+		
+	
+	public static void main(String args[]) {
+		
+		ExtendedEuclideanAlgorithm object = new ExtendedEuclideanAlgorithm();
+
+		System.out.println("\nCalculate the greatest common divisor of two numbers, and \ncoefficients of Bezout's identity using Euclidean and extended Euclidean algorithms:");
+		System.out.println("_____________________________________________________________________________________\n");
+	
+		Scanner input = new Scanner(System.in);//giving the input numbers whose gcd and Bézout's identity  will be calculated 
+		
+		System.out.print("Type the first number :"); // first input
+		object.firstNumber = input.nextLong();
+		
+		System.out.print("Type the second number :"); //second input
+		object.secondNumber = input.nextLong();
+
+		System.out.println("\nThe greatest common divisor is: "
+				+ object.euclidean(object.firstNumber, object.secondNumber)); // printing out the gcd of two given numbers
+		
+		
+		object.euclidean(object.firstNumber, object.secondNumber); 
+		object.extendedEuclidean(object.firstNumber, object.secondNumber);
+		input.close();
+		
+	}
+	
+}
