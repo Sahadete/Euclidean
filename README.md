@@ -1,2 +1,2 @@
 # Euclidean
-Euclidean Algorithm the computing the GCD
+Euclidean Algorithm - computing the GCD
